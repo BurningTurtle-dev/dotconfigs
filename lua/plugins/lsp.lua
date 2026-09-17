@@ -56,6 +56,41 @@ return {
 				vim.lsp.config(server, { capabilities = capabilities })
 			end
 
+			vim.lsp.config("rust_analyzer", {
+				capabilities = capabilities,
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = true,
+						check = {
+							command = "clippy", -- or "check" if you don't want clippy
+						},
+						diagnostics = {
+							enable = true,
+							experimental = {
+								enable = true, -- enables some extra lints
+							},
+						},
+						cargo = {
+							allFeatures = true,
+						},
+						-- keep your lens settings if you want them
+						lens = {
+							enable = true,
+							debug = { enable = true },
+							implementations = { enable = true },
+							references = {
+								adt = { enable = true },
+								enumVariant = { enable = true },
+								method = { enable = true },
+								trait = { enable = true },
+							},
+							run = { enable = true },
+							updateTest = { enable = true },
+						},
+					},
+				},
+			})
+
 			vim.lsp.enable(servers)
 
 			vim.lsp.inlay_hint.enable(true)
