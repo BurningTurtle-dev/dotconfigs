@@ -14,6 +14,13 @@ return {
 				end,
 				desc = "Use Telescope instead of default search",
 			},
+			{
+				"<leader>t",
+				function()
+					require("telescope.builtin").live_grep()
+				end,
+				desc = "Use Telescope to seach for keyword in filetree",
+			},
 		},
 	},
 }
