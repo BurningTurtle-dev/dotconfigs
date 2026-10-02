@@ -6,3 +6,4 @@ vim.opt.mouse = ""
 vim.opt.hlsearch = false
 vim.opt.cursorline = true
 vim.opt.wildmenu = true
+vim.opt.scrolloff = 8
